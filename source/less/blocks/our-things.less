@@ -1,0 +1,52 @@
+.our-things {
+	margin-bottom: 30px;
+}
+
+.our-things__list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.our-things__item {
+	position: relative;
+	width: 128px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	color: #383838;
+	
+	&:nth-child(2n) {
+		margin-left: 38px;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		transform: translateY(-136%);
+		background-repeat: no-repeat;
+	}
+}
+
+.our-things__item--day {
+	
+	&::before {
+		background-image: url("../../img/watch.svg");
+		width: 51px;
+		height: 51px;
+	}
+}
+
+.our-things__item--age {
+
+}
+
+.our-things__item--something {
+	margin-top: 112px;
+
+	&::before {
+		background-image: url("../../img/pencil.svg");
+		width: 52px;
+		height: 52px;
+	}
+}
