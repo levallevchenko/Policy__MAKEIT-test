@@ -7,7 +7,7 @@
 	&::before {
 		content: "";
 		position: absolute;
-		width: 346px;
+		width: 348px;
 		height: 1px;
 		top: 0;
 		left: -27px;
@@ -34,4 +34,50 @@
 
 .page-footer__logo {
 	vertical-align: middle;
+}
+
+@media (min-width: @tablet-width) {
+	.page-footer {
+		background-color: #f1f5f4;
+		min-height: 36px;
+	}
+
+	.page-footer__wrapper {
+		display: flex;
+		justify-content: space-between;
+		padding: 0;
+
+		&::before {
+			display: none;
+		}
+	}
+
+	.page-footer__link-info {
+		display: inline-block;
+		padding-top: 3px;
+		opacity: 0.7;
+		color: #262626;
+		font-size: 13px;
+		font-weight: 500;
+		line-height: 31px;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.page-footer__created-by {
+		margin-left: auto;
+		margin-top: 14px;
+	}
+
+	.page-footer__logo-link {
+		margin-top: 8px;
+	}
+}
+
+@media (min-width: @desktop-width) {
+	.page-footer__wrapper {
+		&::before {
+			display: none;
+		}
+	}
 }

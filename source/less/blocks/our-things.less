@@ -29,7 +29,6 @@
 }
 
 .our-things__item--day {
-	
 	&::before {
 		background-image: url("../../img/watch.svg");
 		width: 51px;
@@ -48,5 +47,47 @@
 		background-image: url("../../img/pencil.svg");
 		width: 52px;
 		height: 52px;
+	}
+}
+
+@media (min-width: @tablet-width) {
+	.our-things {
+		margin-left: 6px;
+		margin-bottom: 50px;
+	}
+
+	.our-things__list {
+		justify-content: space-between;
+		width: 486px;
+	}
+
+	.our-things__item {
+		&--something {
+			margin-top: 0;
+		}
+	}
+
+	.our-things__item:nth-child(2n) {
+		margin-left: 0;
+		position: relative;
+
+		&::before, &::after {
+			content: "";
+			position: absolute;
+			width: 2px;
+			height: 133px;
+			background-color: #383838;
+			opacity: 0.1;
+		}
+
+		&::before {
+			top: 107px;
+			left: -28px;
+		}	
+
+			&::after {
+			top: -73px;
+			right: -13px;
+		}		
 	}
 }
