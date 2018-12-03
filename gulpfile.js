@@ -1,11 +1,14 @@
 "use strict";
 
 var gulp = require("gulp");
+var rename = require("gulp-rename");
+var csso = require("gulp-csso");
 var less = require("gulp-less");
 var plumber = require("gulp-plumber");
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var server = require("browser-sync").create();
+var del = require("del");
 
 gulp.task("css", function () {
   return gulp.src("source/less/style.less")
@@ -15,12 +18,36 @@ gulp.task("css", function () {
       autoprefixer()
     ]))
     .pipe(gulp.dest("source/css"))
+    .pipe(csso())
+    .pipe(rename("style.min.css"))
+    .pipe(gulp.dest("build/css"))
     .pipe(server.stream());
 });
 
+gulp.task("clean", function () {
+  return del("build");
+});
+
+gulp.task("copy", function () {
+  return gulp.src([
+      "source/fonts/**/*.otf",
+      "source/img/**",
+      "source/js/**"
+    ], {
+      base: "source"
+})
+    .pipe(gulp.dest("build"));
+});
+
+gulp.task("build", gulp.series(
+  "clean",
+  "copy",
+  "css",
+));
+
 gulp.task("server", function () {
   server.init({
-    server: "source/",
+    server: "build/",
     notify: false,
     open: true,
     cors: true,
