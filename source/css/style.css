@@ -429,12 +429,12 @@ ul {
   background-repeat: no-repeat;
 }
 .our-things__item--day::before {
-  background-image: url("../../img/watch.svg");
+  background-image: url("../img/watch.svg");
   width: 51px;
   height: 51px;
 }
 .our-things__item--age::before {
-  background-image: url("../../img/ten.svg");
+  background-image: url("../img/ten.svg");
   width: 62px;
   height: 47px;
 }
@@ -442,7 +442,7 @@ ul {
   margin-top: 112px;
 }
 .our-things__item--something::before {
-  background-image: url("../../img/pencil.svg");
+  background-image: url("../img/pencil.svg");
   width: 52px;
   height: 52px;
 }
@@ -491,7 +491,7 @@ ul {
 }
 .page-main {
   padding-top: 190px;
-  background: url("../../img/head.svg") no-repeat 0 86px;
+  background: url("../img/head.svg") no-repeat 0 86px;
 }
 .page-main__head {
   font-size: 68px;
