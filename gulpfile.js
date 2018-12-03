@@ -39,12 +39,6 @@ gulp.task("copy", function () {
     .pipe(gulp.dest("build"));
 });
 
-gulp.task("build", gulp.series(
-  "clean",
-  "copy",
-  "css",
-));
-
 gulp.task("server", function () {
   server.init({
     server: "build/",
@@ -58,4 +52,7 @@ gulp.task("server", function () {
   gulp.watch("source/*.html").on("change", server.reload);
 });
 
-gulp.task("start", gulp.series("css", "server"));
+gulp.task("build", gulp.series("clean",
+  "copy", "css"));
+
+gulp.task("start", gulp.series("build", "server"));
