@@ -1,5 +1,5 @@
 .our-things {
-	margin-bottom: 30px;
+	margin-bottom: 45px;
 }
 
 .our-things__list {
@@ -37,7 +37,11 @@
 }
 
 .our-things__item--age {
-
+	&::before {
+		background-image: url("../../img/ten.svg");
+		width: 62px;
+		height: 47px;
+	}
 }
 
 .our-things__item--something {
@@ -62,13 +66,16 @@
 	}
 
 	.our-things__item {
+		&:nth-child(2n) {
+			margin-left: 0;
+		}
+
 		&--something {
 			margin-top: 0;
 		}
 	}
 
-	.our-things__item:nth-child(2n) {
-		margin-left: 0;
+	.our-things {
 		position: relative;
 
 		&::before, &::after {
@@ -78,16 +85,22 @@
 			height: 133px;
 			background-color: #383838;
 			opacity: 0.1;
+			top: -74px;
 		}
 
 		&::before {
-			top: 107px;
-			left: -28px;
+			left: 150px;
 		}	
 
 			&::after {
-			top: -73px;
-			right: -13px;
+			right: 200px;
 		}		
+	}
+}
+
+@media (min-width: @desktop-width) {
+	.our-things {
+		margin-left: auto;
+		width: 520px;
 	}
 }

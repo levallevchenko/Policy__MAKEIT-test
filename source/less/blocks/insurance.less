@@ -18,16 +18,16 @@
 
 .insurance__sublist {
 	display: none;
+
+	&:hover {
+		color: #383838;
+	}
 }
 
 .insurance__subitem {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 24px;
-
-	&:hover {
-		color: #383838;
-	}
 }
 
 @media (min-width: @tablet-width) {
@@ -38,3 +38,12 @@
 	}
 }
 
+@media (min-width: @desktop-width) {
+	.insurance {
+		order: -1;
+		width: 526px;
+		margin-left: auto;
+		margin-top: -146px;
+		margin-bottom: 0;
+	}
+}
