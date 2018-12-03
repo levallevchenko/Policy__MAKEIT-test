@@ -30,7 +30,7 @@
           <p class="page-main__text">Все виды страхования, без выделений или ограничений отдельных видов</p>
           <section class="call">
             <form class="call__form">
-              <input class="call__input" type="tel" placeholder="+7 (___) ___-__-__">
+              <input class="call__input" id="phone" name="user-phone" type="tel" placeholder="+7 (___) ___-__-__">
               <button class="call__button">Заказать звонок</button>
             </form>
             <p class="call__text">Перезвоним в течении пяти минут (Пн-Вс 10-19)</p>
@@ -104,6 +104,13 @@
         </div>
       </footer>
     </div>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#phone").mask("+7 (999) 999-99-99");
+      });
+    </script>
     <script>
       var contacts = document.querySelector('.contacts');
       var contactsToggle = document.querySelector('.contacts__toggle');
