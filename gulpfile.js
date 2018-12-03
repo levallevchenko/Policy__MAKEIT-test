@@ -6,6 +6,8 @@ var csso = require("gulp-csso");
 var less = require("gulp-less");
 var plumber = require("gulp-plumber");
 var postcss = require("gulp-postcss");
+var posthtml = require("gulp-posthtml");
+var include = require("posthtml-include");
 var autoprefixer = require("autoprefixer");
 var server = require("browser-sync").create();
 var del = require("del");
@@ -22,6 +24,14 @@ gulp.task("css", function () {
     .pipe(rename("style.min.css"))
     .pipe(gulp.dest("build/css"))
     .pipe(server.stream());
+});
+
+gulp.task("html", function () {
+  return gulp.src("source/*.html")
+    .pipe(posthtml([
+      include()
+    ]))
+    .pipe(gulp.dest("build"));
 });
 
 gulp.task("clean", function () {
@@ -53,6 +63,6 @@ gulp.task("server", function () {
 });
 
 gulp.task("build", gulp.series("clean",
-  "copy", "css"));
+  "copy", "css", "html"));
 
 gulp.task("start", gulp.series("build", "server"));
