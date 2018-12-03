@@ -54,7 +54,7 @@
 	left: 27px;
 }
 
-.contacts__toggle span {
+.contacts__burger {
   display: block;
   position: absolute;
   top: 10px;
@@ -64,8 +64,8 @@
   background: #000000;
 }
  
-.contacts__toggle span::before,
-.contacts__toggle span::after {
+.contacts__burger::before,
+.contacts__burger::after {
   position: absolute;
   display: block;
   left: 0;
@@ -75,7 +75,7 @@
   content: "";
 }
  
-.contacts__toggle span {
+.contacts__burger {
 	&::before {
   	top: -9px;
 	}
@@ -83,7 +83,38 @@
 		bottom: -9px;
 	}
 }
- 
+
+.contacts__cross:before, .contacts__cross:after {
+	content: "";
+	position: absolute;
+	height: 33px;
+	width: 3px;
+	top: -5px;
+	left: 14px;
+	background-color: #000000;
+}
+
+.contacts__cross:before {
+	transform: rotate(45deg);
+}
+
+.contacts__cross:after {
+	transform: rotate(-45deg);
+}
+
+.contacts--closed .contacts__cross {
+  display: none;
+}
+
+.contacts--opened .contacts__burger {
+  display: none;
+}
+
+.contacts--opened {
+	width: 100%;
+	margin: 0;
+}
+
 @media (min-width: @tablet-width) {
 	.contacts {
 		width:  696px;
